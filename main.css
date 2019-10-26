@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #222;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+}
+
+#moneyLabel {
+  display: inline-block;
+  font-size: 1.25rem;
+  margin-top: 50px;
+  vertical-align: bottom;
+}
+
+#moneyInput {
+  display: inline-block;
+  border: none;
+  border-bottom: solid 1px #fff;
+  background: none;
+  text-align: center;
+  color: #fff;
+  font-size: 1.25rem;
+  transition: border-color 0.3s ease-in-out;
+  margin: 0 10px;
+}
+
+#moneyInput:focus {
+  border-color: lightsalmon;
+  outline: none;
+}
+
+#moneySubmit {
+  display: inline-block;
+  width: 50px;
+  background: none;
+  border: solid 1px #fff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: transform 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+  outline: none;
+}
+
+#moneySubmit:hover {
+  transform: scale(1.02);
+  border-color: lightsalmon;
+  color: lightsalmon;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

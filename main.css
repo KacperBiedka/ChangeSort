@@ -14,14 +14,19 @@ body {
   text-align: center;
 }
 
-#moneyLabel {
+.inputContainer {
+    margin: 5% auto;
+}
+
+#moneyLabel, #costLabel{
   display: inline-block;
   font-size: 1.25rem;
   margin-top: 50px;
   vertical-align: bottom;
+  transition: opacity 0.5s ease;
 }
 
-#moneyInput {
+#moneyInput, #costInput {
   display: inline-block;
   border: none;
   border-bottom: solid 1px #fff;
@@ -29,7 +34,7 @@ body {
   text-align: center;
   color: #fff;
   font-size: 1.25rem;
-  transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out, opacity 0.5s ease;
   margin: 0 10px;
 }
 
@@ -38,7 +43,7 @@ body {
   outline: none;
 }
 
-#moneySubmit {
+#moneySubmit, #costSubmit {
   display: inline-block;
   width: 50px;
   background: none;
@@ -48,6 +53,14 @@ body {
   font-size: 1.5rem;
   transition: transform 0.5s ease, border-color 0.5s ease, color 0.5s ease;
   outline: none;
+}
+
+#costSubmit {
+    font-size: 1rem;
+    white-space: nowrap;
+    width: 150px;
+    padding: 5px 0;
+    transition: opacity 0.5s ease;
 }
 
 #moneySubmit:hover {
@@ -60,5 +73,10 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 

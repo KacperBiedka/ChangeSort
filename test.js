@@ -1,58 +1,47 @@
-function waysToReturnChange(denominations, numOfCoins, amount) {
+function wydaj()
+{
 
-    if(amount === 0) return 1; // Perfect!
+let change = 4000;
 
-    if(amount < 0) return 0; // No solution exists for negative amount
+//tablica dostepnych nominalow
+    let nominals = [
+        { name: "oneG", value: 0, nominal: 1 },
+        { name: "twoG", value: 0, nominal: 2 },
+        { name: "fiveG", value: 0, nominal: 5 },
+        { name: "ones", value: 0, nominal: 100 },
+        { name: "twos", value: 0, nominal: 200 },
+        { name: "fives", value: 0, nominal: 500 },
+        { name: "tens", value: 0, nominal: 1000 },
+        { name: "twenties", value: 3, nominal: 2000 },
+        { name: "fifties", value: 0, nominal: 5000 },
+        { name: "hundreds", value: 0, nominal: 10000 },
+        { name: "twohundreds", value: 0, nominal: 20000 },
+        { name: "fivehundreds", value: 0, nominal: 50000 }
+    ];
 
-    if(numOfCoins < 0 && amount > 0) return 0; // We don't have coins left!
+    if (!isNaN(change)) {
 
-    console.log('checking ways to make ' + amount + ' with ' + denominations.slice(numOfCoins));
+        var wynik = "Reszta to:\r\n";
+        let i = nominals.length - 1;
 
-    return waysToReturnChange(denominations, numOfCoins, amount - denominations[numOfCoins]) +
-        waysToReturnChange(denominations, numOfCoins - 1, amount);
-}
-
-let startingNominals = [
-    { name: "oneG", value: 5 },
-    { name: "twoG", value: 5 },
-    { name: "fiveG", value: 5 },
-    { name: "ones", value: 5 },
-    { name: "twos", value: 5 },
-    { name: "fives", value: 5 },
-    { name: "tens", value: 5 },
-    { name: "twenties", value: 5 },
-    { name: "fifties", value: 5 },
-    { name: "hundreds", value: 5 },
-    { name: "twohundreds", value: 5 },
-    { name: "fivehundreds", value: 5 }
-];
-
-function waysToReturnMemoize(amount) {
-    // intialize an array of zeros with indices up to amount
-    var waysOfDoingNcents = [];
-    for (var i = 0; i <= amount; i++) {
-        waysOfDoingNcents[i] = 0;
-    }
-    // there is 1 way to renturn 0 cents
-    waysOfDoingNcents[0] = 1;
-
-    for (var j = 0; j < startingNominals.length; j++) {
-        // we can only start returning change with coins in our denominations
-        var coin = startingNominals[j].value;
-
-        // we start bottom up, each time reducing change amout with curr coin.
-        for (var higherAmount = coin; higherAmount <= amount; higherAmount++) {
-            var higherAmountRemainder = higherAmount - coin;
-            // ways to create change is equivalent to reducing the problem to a known problem
-            // and gaining all the ways to solve for smaller problems
-            waysOfDoingNcents[higherAmount] += waysOfDoingNcents[higherAmountRemainder];
+        //dopoki nie wydano calej reszty
+        while (change > 0 && i >= 0) {
+            //sprawdz czy mozna wydac danym nominalem
+            if (change >= nominals[i].nominal && nominals[i].value > 0) {
+                let amount = Math.floor(change / nominals[i].nominal); //ile razy wydac dany nominal
+                while (amount > nominals[i].value && amount >= 0) {
+                    amount--;
+                }
+                change = Math.round(100 * (change - (nominals[i].nominal * amount))) / 100;     //zmniejsz reszte o wydany nominal
+                wynik += nominals[i].name + "PLN x " + amount + "\r\n"; //wypisz wynik
+            }
+            i--;
         }
+                //rozpatrz kolejny nominal
+                console.log(wynik);
+            } else {
+                console.log('Podano nieprawidlowa wartosc!');
+            }
+        return false;
     }
-
-    return waysOfDoingNcents[amount];
-}
-
-var denominations = [1, 2, 3];
-var amount = 4;
-console.log(waysToReturnChange(denominations, denominations.length - 1, amount));
-console.log(waysToReturnMemoize(amount));
+wydaj();

@@ -136,7 +136,7 @@ const sortValues = () => {
     let nominals = [...startingNominals];
     let max = nominals[0];
     return nominals;
-}
+};
 
 const resetValues = () => {
     totalValue += currentValue;

@@ -69,6 +69,19 @@ body {
   color: lightsalmon;
 }
 
+.change {
+  margin: 5% auto;
+  padding: 5%;
+  text-decoration: underline;
+  line-height: 60px;
+  text-decoration-color: lightseagreen;
+  width: 500px;
+}
+
+.answer {
+  color: #fff;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

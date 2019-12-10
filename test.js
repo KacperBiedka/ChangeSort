@@ -5,18 +5,18 @@ let change = 4000;
 
 //tablica dostepnych nominalow
     let nominals = [
-        { name: "oneG", value: 0, nominal: 1 },
-        { name: "twoG", value: 0, nominal: 2 },
-        { name: "fiveG", value: 0, nominal: 5 },
-        { name: "ones", value: 0, nominal: 100 },
-        { name: "twos", value: 0, nominal: 200 },
-        { name: "fives", value: 0, nominal: 500 },
-        { name: "tens", value: 0, nominal: 1000 },
-        { name: "twenties", value: 3, nominal: 2000 },
-        { name: "fifties", value: 0, nominal: 5000 },
-        { name: "hundreds", value: 0, nominal: 10000 },
-        { name: "twohundreds", value: 0, nominal: 20000 },
-        { name: "fivehundreds", value: 0, nominal: 50000 }
+        { name: "0.01", value: 0, nominal: 1 },
+        { name: "0.02", value: 0, nominal: 2 },
+        { name: "0.05", value: 0, nominal: 5 },
+        { name: "1", value: 0, nominal: 100 },
+        { name: "2", value: 0, nominal: 200 },
+        { name: "5", value: 0, nominal: 500 },
+        { name: "10", value: 0, nominal: 1000 },
+        { name: "20", value: 3, nominal: 2000 },
+        { name: "50", value: 0, nominal: 5000 },
+        { name: "100", value: 0, nominal: 10000 },
+        { name: "200", value: 0, nominal: 20000 },
+        { name: "500", value: 0, nominal: 50000 }
     ];
 
     if (!isNaN(change)) {

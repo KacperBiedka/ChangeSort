@@ -23,11 +23,14 @@ let startingNominals = [
     { name: "0.01", value: 0, nominal: 1 },
     { name: "0.02", value: 0, nominal: 2 },
     { name: "0.05", value: 0, nominal: 5 },
+    { name: "0.1", value: 0, nominal: 10 },
+    { name: "0.2", value: 0, nominal: 20 },
+    { name: "0.5", value: 0, nominal: 50 },
     { name: "1", value: 0, nominal: 100 },
     { name: "2", value: 0, nominal: 200 },
     { name: "5", value: 0, nominal: 500 },
     { name: "10", value: 0, nominal: 1000 },
-    { name: "20", value: 3, nominal: 2000 },
+    { name: "20", value: 0, nominal: 2000 },
     { name: "50", value: 0, nominal: 5000 },
     { name: "100", value: 0, nominal: 10000 },
     { name: "200", value: 0, nominal: 20000 },
@@ -125,42 +128,54 @@ const changeLabel = value => {
             currentValue += amount * 2;
             break;
         case 2:
-            moneyLabel.innerHTML = "Złotówki";
+            moneyLabel.innerHTML = "Dziesięciogroszówki";
             currentValue += amount * 5;
             break;
         case 3:
+            moneyLabel.innerHTML = "Dwudziestogroszówki";
+            currentValue += amount * 10;
+            break;
+        case 4:
+            moneyLabel.innerHTML = "Pięćdziesięciogroszówki";
+            currentValue += amount * 20;
+            break;
+        case 5:
+            moneyLabel.innerHTML = "Złotówki";
+            currentValue += amount * 50;
+            break;
+        case 6:
             moneyLabel.innerHTML = "Dwuzłotówki";
             currentValue += amount * 100;
             break;
-        case 4:
+        case 7:
             moneyLabel.innerHTML = "Piątki";
             currentValue += amount * 200;
             break;
-        case 5:
-            moneyLabel.innerHTML = "Dzisiątki";
+        case 8:
+            moneyLabel.innerHTML = "Dziesiątki";
             currentValue += amount * 500;
             break;
-        case 6:
+        case 9:
             moneyLabel.innerHTML = "Dwudziestki";
             currentValue += amount * 1000;
             break;
-        case 7:
+        case 10:
             moneyLabel.innerHTML = "Pięćdziesiątki";
             currentValue += amount * 2000;
             break;
-        case 8:
+        case 11:
             moneyLabel.innerHTML = "Setki";
             currentValue += amount * 5000;
             break;
-        case 9:
+        case 12:
             moneyLabel.innerHTML = "Dwusetki";
             currentValue += amount * 10000;
             break;
-        case 10:
+        case 13:
             moneyLabel.innerHTML = "Pięćsetki";
             currentValue += amount * 20000;
             break;
-        case 11:
+        case 14:
             currentValue += amount * 50000;
         default:
             moneyInput.classList.add('hide');
